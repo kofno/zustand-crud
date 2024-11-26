@@ -20,5 +20,37 @@
       "title": "Quisque diam eu placerat vivamus duis tincidunt pharetra",
       "body": "Curabitur et aliquet sit rutrum, lacus id habitasse pretium mauris. Dictum proin tempor magnis dapibus, inceptos quisque amet convallis. Ultrices mollis magnis mauris; bibendum eleifend pharetra integer pharetra. Consequat vulputate at non urna curae blandit ad. In consectetur adipiscing habitasse erat sociosqu aliquet tortor ultrices. Ante proin conubia fames inceptos euismod placerat hendrerit nunc. Quisque diam eu placerat vivamus duis tincidunt pharetra. Laoreet parturient nisl quis est amet adipiscing magnis. Nam cursus nunc dapibus dignissim fames suscipit enim. Potenti felis ut torquent quis taciti aliquet malesuada arcu est."
     }
+  ],
+  "comments": [
+    {
+      "id": "58c9",
+      "text": "This is pretty cool!",
+      "author": "Ryan",
+      "postId": "58a0"
+    },
+    {
+      "id": "88b1",
+      "text": "Woot Woot!",
+      "author": "Steve",
+      "postId": "58a0"
+    },
+    {
+      "id": "e080",
+      "text": "Nisl bibendum tellus ut mauris convallis purus. Cursus torquent id nam porta eu consectetur nec eget maecenas.",
+      "author": "Ryan",
+      "postId": "5047"
+    },
+    {
+      "id": "ccd8",
+      "text": "Dapibus litora magnis dui mauris dui nibh. Natoque laoreet molestie pellentesque sagittis sociosqu gravida in nam. Consectetur sodales ligula netus finibus sed pellentesque. Tortor nam vestibulum eros ultrices hendrerit facilisis lacinia pulvinar. Fermentum sapien penatibus etiam libero purus vehicula aenean. Bibendum praesent feugiat accumsan suspendisse pretium, massa tellus. Aliquet neque dictumst vel blandit lacinia habitant. Sem primis aliquet finibus elit quis magna viverra",
+      "author": "Buttons",
+      "postId": "58a0"
+    },
+    {
+      "id": "c8ec",
+      "postId": "58a0",
+      "text": " litora magnis dui mauris dui nibh. Natoque laoreet molestie pellentesque sagittis sociosqu gravida in nam. Consectetur sodales ligula netus finibus sed pellentesque. Tortor nam vestibulum eros ultrices hendrerit facilisis lacinia pulvinar. Fermentum sapien penatibus etiam libero purus vehicula aenean. Bibendum praesent feugiat accumsan suspendisse pretium, massa tellus. Aliquet neque dictumst vel blandit lacinia habitant. Sem primis aliquet finibus elit quis magna viverra",
+      "author": "Foobar"
+    }
   ]
 }

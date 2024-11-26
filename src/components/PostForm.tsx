@@ -6,6 +6,7 @@ const PostForm = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
+
   const isCreating = usePostsStore((state) => state.isCreating);
   const addPost = usePostsStore((state) => state.addPost);
 
