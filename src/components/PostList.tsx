@@ -1,18 +1,12 @@
 import { AnimatePresence, motion } from 'motion/react';
-import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { usePostsStore } from '../stores/usePostsStore';
 import Spinner from './Spinner';
-import { Link } from 'react-router-dom';
 
 const PostList = () => {
   const posts = usePostsStore((state) => state.posts);
   const isLoading = usePostsStore((state) => state.isLoading);
   const deletePost = usePostsStore((state) => state.deletePost);
-  const fetchPosts = usePostsStore((state) => state.fetchPosts);
-
-  useEffect(() => {
-    fetchPosts();
-  }, [fetchPosts]);
 
   if (isLoading) {
     return <Spinner />;
