@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from 'motion/react';
 import { useEffect } from 'react';
 import { usePostsStore } from '../stores/usePostsStore';
 import Spinner from './Spinner';
+import { Link } from 'react-router-dom';
 
 const PostList = () => {
   const posts = usePostsStore((state) => state.posts);
@@ -41,7 +42,12 @@ const PostList = () => {
               <div className="flex justify-between items-start">
                 <div>
                   <h3 className="text-lg font-bold text-gray-800">
-                    {post.title}
+                    <Link
+                      to={`/post/${post.id}`}
+                      className="text-blue-500 hover:underline"
+                    >
+                      {post.title}
+                    </Link>
                   </h3>
                   <p className="text-gray-600 mt-1">{post.body}</p>
                 </div>

@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 
 interface Post {
-  id: number;
+  id: string;
   title: string;
   body: string;
 }
@@ -13,8 +13,8 @@ interface PostsStore {
   error: string | null;
   fetchPosts: () => Promise<void>;
   addPost: (post: Omit<Post, 'id'>) => Promise<void>;
-  updatePost: (id: number, updatedPost: Omit<Post, 'id'>) => Promise<void>;
-  deletePost: (id: number) => Promise<void>;
+  updatePost: (id: string, updatedPost: Omit<Post, 'id'>) => Promise<void>;
+  deletePost: (id: string) => Promise<void>;
 }
 
 export const usePostsStore = create<PostsStore>((set) => ({

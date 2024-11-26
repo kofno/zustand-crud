@@ -1,5 +1,7 @@
+import { Route, Routes } from 'react-router-dom';
 import PostForm from './components/PostForm';
 import PostList from './components/PostList';
+import PostDetail from './components/PostDetail';
 
 const App = () => {
   return (
@@ -8,8 +10,18 @@ const App = () => {
         <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">
           CRUD App with Zustand
         </h1>
-        <PostForm />
-        <PostList />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <PostForm />
+                <PostList />
+              </>
+            }
+          />
+          <Route path="/post/:id" element={<PostDetail />} />
+        </Routes>
       </div>
     </div>
   );
