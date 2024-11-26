@@ -1,12 +1,19 @@
 import { AnimatePresence, motion } from 'motion/react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { usePostsStore } from '../stores/usePostsStore';
 import Spinner from './Spinner';
 
 const PostList = () => {
   const posts = usePostsStore((state) => state.posts);
+  const commentCounts = usePostsStore((state) => state.commentCounts);
   const isLoading = usePostsStore((state) => state.isLoading);
   const deletePost = usePostsStore((state) => state.deletePost);
+  const fetchAllComments = usePostsStore((state) => state.fetchAllComments);
+
+  useEffect(() => {
+    fetchAllComments();
+  }, [fetchAllComments]);
 
   if (isLoading) {
     return <Spinner />;
@@ -44,6 +51,9 @@ const PostList = () => {
                     </Link>
                   </h3>
                   <p className="text-gray-600 mt-1">{post.body}</p>
+                  <p className="text-sm text-gray-500 mt-2">
+                    {commentCounts[post.id] || 0} comments
+                  </p>
                 </div>
                 <button
                   onClick={() => deletePost(post.id)}

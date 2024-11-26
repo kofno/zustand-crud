@@ -16,6 +16,7 @@ export interface Comment {
 interface PostsStore {
   posts: Post[];
   comments: Comment[];
+  commentCounts: Record<string, number>;
   isLoading: boolean;
   isCreating: boolean;
   error: string | null;
@@ -25,6 +26,7 @@ interface PostsStore {
   updatePost: (id: string, updatedPost: Omit<Post, 'id'>) => Promise<void>;
   deletePost: (id: string) => Promise<void>;
 
+  fetchAllComments: () => Promise<void>;
   fetchComments: (postId: string) => Promise<void>;
   addComment: (comment: Omit<Comment, 'id'>) => Promise<void>;
   deleteComment: (id: string) => Promise<void>;
@@ -35,6 +37,7 @@ interface PostsStore {
 export const usePostsStore = create<PostsStore>((set) => ({
   posts: [],
   comments: [],
+  commentCounts: {},
   isLoading: false,
   isCreating: false,
   error: null,
@@ -113,6 +116,26 @@ export const usePostsStore = create<PostsStore>((set) => ({
       set((state) => ({
         posts: state.posts.filter((post) => post.id !== id),
       }));
+    } catch (error) {
+      set({
+        error: error instanceof Error ? error.message : 'An error occurred',
+      });
+    }
+  },
+
+  fetchAllComments: async () => {
+    try {
+      const response = await fetch('http://localhost:5001/comments');
+      if (!response.ok) throw new Error('Failed to fetch comments');
+      const data = await response.json();
+
+      // Count comments for each post
+      const counts: Record<string, number> = {};
+      data.forEach((comment: Comment) => {
+        counts[comment.postId] = (counts[comment.postId] || 0) + 1;
+      });
+
+      set({ commentCounts: counts });
     } catch (error) {
       set({
         error: error instanceof Error ? error.message : 'An error occurred',
