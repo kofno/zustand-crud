@@ -1,8 +1,10 @@
 import { useEffect } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import ErrorBoundary from './components/ErrorBoundary';
 import PostDetail from './components/PostDetail';
 import PostForm from './components/PostForm';
 import PostList from './components/PostList';
+import RouteError from './components/RouteError';
 import { postDetailLoader } from './loaders/postDetailLoader';
 import { usePostsStore } from './stores/usePostsStore';
 
@@ -15,11 +17,13 @@ const router = createBrowserRouter([
         <PostList />
       </>
     ),
+    errorElement: <ErrorBoundary />,
   },
   {
     path: '/post/:id',
     element: <PostDetail />,
     loader: postDetailLoader,
+    errorElement: <RouteError />,
   },
 ]);
 
