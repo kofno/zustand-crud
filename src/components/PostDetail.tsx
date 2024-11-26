@@ -26,6 +26,9 @@ const PostDetail = () => {
       <PostContent title={post.title} body={post.body} />
       <ErrorToast error={error} onDismiss={clearError} />
       <CommentList comments={comments} onDeleteComment={deleteComment} />
+      <h3 className="text-xl font-semibold mb-2">
+        Comments ({comments.length})
+      </h3>
       <CommentForm
         onAddComment={(text, author) =>
           addComment({ postId: post.id, text, author })
